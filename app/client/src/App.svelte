@@ -47,7 +47,9 @@
             body: formData
         })
         let responseText = await response.text()
-        handle(responseText)
+        if (response.ok) handle(responseText)
+        else if (response.status === 413) alert('Your MIDI file is too large. Please try again with a smaller file.')
+        else alert('Sorry, something went wrong. Please try again with a different file.')
     }
 </script>
 

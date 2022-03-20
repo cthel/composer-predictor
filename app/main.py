@@ -6,6 +6,7 @@ import os
 from music21 import converter
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 25
 
 # @app.route("/")
 # def hello():
@@ -34,9 +35,15 @@ def makePrediction(filename):
     dummy_df['midi'] = [filename]
     dummy_df['midi_text'] = dummy_df.apply(getWordsFromMidi, axis=1)
     print(dummy_df)
-    transformer = pickle.load(open('app/transformer.pkl', 'rb'))
+    try:
+        transformer = pickle.load(open('app/transformer.pkl', 'rb'))
+    except:
+        transformer = pickle.load(open('transformer.pkl', 'rb'))
     vectorized_dummy = transformer.transform(dummy_df['midi_text'])
-    model = pickle.load(open('app/model.pkl', 'rb'))
+    try:
+        model = pickle.load(open('app/model.pkl', 'rb'))
+    except:
+        model = pickle.load(open('model.pkl', 'rb'))
     return str(model.predict(vectorized_dummy))
 
 # Path for all the static files (compiled JS/CSS, etc.)
@@ -50,14 +57,21 @@ def hello():
 
 @app.route('/predict')
 def result():
-    return makePrediction('app/k001.mid')
+    try:
+        return makePrediction('app/k001.mid')
+    except:
+        return makePrediction('k001.mid')
 
 @app.route('/upload', methods=['POST'])
 def upload():
     uploaded_file = request.files['file']
     filename = 'UPLOAD.mid'
-    uploaded_file.save(os.path.join('app/upload', filename))
-    return makePrediction(os.path.join('app/upload', filename))
+    try:
+        uploaded_file.save(os.path.join('app/upload', filename))
+        return makePrediction(os.path.join('app/upload', filename))
+    except:
+        uploaded_file.save(os.path.join('upload', filename))
+        return makePrediction(os.path.join('upload', filename))
 
 if __name__ == "__main__":
     app.run()
