@@ -8,6 +8,7 @@ flask = "*"
 gunicorn = "*"
 pandas = "*"
 music21 = "*"
+sklearn = "*"
 
 [dev-packages]
 
