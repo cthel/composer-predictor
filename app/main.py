@@ -34,9 +34,9 @@ def makePrediction(filename):
     dummy_df['midi'] = [filename]
     dummy_df['midi_text'] = dummy_df.apply(getWordsFromMidi, axis=1)
     print(dummy_df)
-    transformer = pickle.load(open('./transformer.pkl', 'rb'))
+    transformer = pickle.load(open('transformer.pkl', 'rb'))
     vectorized_dummy = transformer.transform(dummy_df['midi_text'])
-    model = pickle.load(open('./model.pkl', 'rb'))
+    model = pickle.load(open('model.pkl', 'rb'))
     return str(model.predict(vectorized_dummy))
 
 # Path for all the static files (compiled JS/CSS, etc.)
@@ -50,7 +50,7 @@ def hello():
 
 @app.route('/predict')
 def result():
-    return makePrediction('./k001.mid')
+    return makePrediction('k001.mid')
 
 @app.route('/upload', methods=['POST'])
 def upload():
