@@ -56,8 +56,8 @@ def result():
 def upload():
     uploaded_file = request.files['file']
     filename = 'UPLOAD.mid'
-    uploaded_file.save(os.path.join('upload', filename))
-    return makePrediction(os.path.join('upload', filename))
+    uploaded_file.save(os.path.join('app/upload', filename))
+    return makePrediction(os.path.join('app/upload', filename))
 
 if __name__ == "__main__":
     app.run()
