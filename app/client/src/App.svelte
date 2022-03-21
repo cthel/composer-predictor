@@ -54,15 +54,24 @@
 <div class="container">
     <!-- <form on:submit|preventDefault={handleSubmit}> -->
     <form id="file-upload">
-        <input type="file" name="file" accept=".mid" on:input={handleSubmit}/>
+        <input type="file" name="file" accept=".mid" on:input={handleSubmit}/> (25kb limit)
         <!-- <input type="submit" value="submit"/> -->
     </form>
 </div>
   
 <!-- <h1>{rand}</h1> -->
 <button on:click={setPromise}>TEST</button>
-<form method="GET" action="k001.mid">
-    <input type="submit" value="Download"/>
+<form method="GET" action="bach_847_format0.mid">
+    <input type="submit" value="Download Bach MIDI"/>
+    <a href="http://www.piano-midi.de/bach.htm">More</a>
+</form>
+<form method="GET" action="elise_format0.mid">
+    <input type="submit" value="Download Beethoven MIDI"/>
+    <a href="http://www.piano-midi.de/beeth.htm">More</a>
+</form>
+<form method="GET" action="schu_143_2_format0.mid">
+    <input type="submit" value="Download Schubert MIDI"/>
+    <a href="http://www.piano-midi.de/schub.htm">More</a>
 </form>
 
 <!-- https://www.wpclipart.com/famous/composers/ -->

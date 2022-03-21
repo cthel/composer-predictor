@@ -1787,7 +1787,7 @@ var app = (function () {
     	return block;
     }
 
-    // (73:8) {#if rand === '[0]'}
+    // (82:8) {#if rand === '[0]'}
     function create_if_block_2(ctx) {
     	let p;
     	let p_intro;
@@ -1796,7 +1796,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.";
-    			add_location(p, file, 73, 8, 2378);
+    			add_location(p, file, 82, 8, 2818);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1819,14 +1819,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(73:8) {#if rand === '[0]'}",
+    		source: "(82:8) {#if rand === '[0]'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (82:8) {#if rand === '[1]'}
+    // (91:8) {#if rand === '[1]'}
     function create_if_block_1(ctx) {
     	let p;
     	let p_intro;
@@ -1835,7 +1835,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.";
-    			add_location(p, file, 82, 8, 3145);
+    			add_location(p, file, 91, 8, 3585);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1858,14 +1858,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(82:8) {#if rand === '[1]'}",
+    		source: "(91:8) {#if rand === '[1]'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:8) {#if rand === '[2]'}
+    // (100:8) {#if rand === '[2]'}
     function create_if_block(ctx) {
     	let p;
     	let p_intro;
@@ -1874,7 +1874,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.";
-    			add_location(p, file, 91, 8, 3896);
+    			add_location(p, file, 100, 8, 4336);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1897,7 +1897,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(91:8) {#if rand === '[2]'}",
+    		source: "(100:8) {#if rand === '[2]'}",
     		ctx
     	});
 
@@ -1911,33 +1911,46 @@ var app = (function () {
     	let form0;
     	let input0;
     	let t1;
+    	let t2;
     	let button;
-    	let t3;
+    	let t4;
     	let form1;
     	let input1;
-    	let t4;
+    	let t5;
+    	let a0;
+    	let t7;
+    	let form2;
+    	let input2;
+    	let t8;
+    	let a1;
+    	let t10;
+    	let form3;
+    	let input3;
+    	let t11;
+    	let a2;
+    	let t13;
     	let div4;
     	let div1;
     	let h20;
-    	let t6;
+    	let t15;
     	let img0;
     	let img0_src_value;
-    	let t7;
-    	let t8;
+    	let t16;
+    	let t17;
     	let div2;
     	let h21;
-    	let t10;
+    	let t19;
     	let img1;
     	let img1_src_value;
-    	let t11;
-    	let t12;
+    	let t20;
+    	let t21;
     	let div3;
     	let h22;
-    	let t14;
+    	let t23;
     	let img2;
     	let img2_src_value;
-    	let t15;
-    	let t16;
+    	let t24;
+    	let t25;
     	let piano;
     	let current;
     	let mounted;
@@ -1966,38 +1979,54 @@ var app = (function () {
     			div0 = element("div");
     			form0 = element("form");
     			input0 = element("input");
-    			t1 = space();
+    			t1 = text(" (25kb limit)");
+    			t2 = space();
     			button = element("button");
     			button.textContent = "TEST";
-    			t3 = space();
+    			t4 = space();
     			form1 = element("form");
     			input1 = element("input");
-    			t4 = space();
+    			t5 = space();
+    			a0 = element("a");
+    			a0.textContent = "More";
+    			t7 = space();
+    			form2 = element("form");
+    			input2 = element("input");
+    			t8 = space();
+    			a1 = element("a");
+    			a1.textContent = "More";
+    			t10 = space();
+    			form3 = element("form");
+    			input3 = element("input");
+    			t11 = space();
+    			a2 = element("a");
+    			a2.textContent = "More";
+    			t13 = space();
     			div4 = element("div");
     			div1 = element("div");
     			h20 = element("h2");
     			h20.textContent = "BACH";
-    			t6 = space();
+    			t15 = space();
     			img0 = element("img");
-    			t7 = space();
+    			t16 = space();
     			if (if_block0) if_block0.c();
-    			t8 = space();
+    			t17 = space();
     			div2 = element("div");
     			h21 = element("h2");
     			h21.textContent = "BEETHOVEN";
-    			t10 = space();
+    			t19 = space();
     			img1 = element("img");
-    			t11 = space();
+    			t20 = space();
     			if (if_block1) if_block1.c();
-    			t12 = space();
+    			t21 = space();
     			div3 = element("div");
     			h22 = element("h2");
     			h22.textContent = "SCHUBERT";
-    			t14 = space();
+    			t23 = space();
     			img2 = element("img");
-    			t15 = space();
+    			t24 = space();
     			if (if_block2) if_block2.c();
-    			t16 = space();
+    			t25 = space();
     			create_component(piano.$$.fragment);
     			attr_dev(input0, "type", "file");
     			attr_dev(input0, "name", "file");
@@ -2007,48 +2036,66 @@ var app = (function () {
     			add_location(form0, file, 55, 4, 1633);
     			attr_dev(div0, "class", "container");
     			add_location(div0, file, 53, 0, 1545);
-    			add_location(button, file, 62, 0, 1838);
+    			add_location(button, file, 62, 0, 1851);
     			attr_dev(input1, "type", "submit");
-    			input1.value = "Download";
-    			add_location(input1, file, 64, 4, 1924);
+    			input1.value = "Download Bach MIDI";
+    			add_location(input1, file, 64, 4, 1949);
+    			attr_dev(a0, "href", "http://www.piano-midi.de/bach.htm");
+    			add_location(a0, file, 65, 4, 2003);
     			attr_dev(form1, "method", "GET");
-    			attr_dev(form1, "action", "k001.mid");
-    			add_location(form1, file, 63, 0, 1882);
+    			attr_dev(form1, "action", "bach_847_format0.mid");
+    			add_location(form1, file, 63, 0, 1895);
+    			attr_dev(input2, "type", "submit");
+    			input2.value = "Download Beethoven MIDI";
+    			add_location(input2, file, 68, 4, 2115);
+    			attr_dev(a1, "href", "http://www.piano-midi.de/beeth.htm");
+    			add_location(a1, file, 69, 4, 2174);
+    			attr_dev(form2, "method", "GET");
+    			attr_dev(form2, "action", "elise_format0.mid");
+    			add_location(form2, file, 67, 0, 2064);
+    			attr_dev(input3, "type", "submit");
+    			input3.value = "Download Schubert MIDI";
+    			add_location(input3, file, 72, 4, 2292);
+    			attr_dev(a2, "href", "http://www.piano-midi.de/schub.htm");
+    			add_location(a2, file, 73, 4, 2350);
+    			attr_dev(form3, "method", "GET");
+    			attr_dev(form3, "action", "schu_143_2_format0.mid");
+    			add_location(form3, file, 71, 0, 2236);
     			attr_dev(h20, "class", "svelte-d70vcx");
     			toggle_class(h20, "mystery", /*rand*/ ctx[1] !== '[0]');
-    			add_location(h20, file, 70, 8, 2113);
+    			add_location(h20, file, 79, 8, 2553);
     			if (!src_url_equal(img0.src, img0_src_value = "./Johann_Sebastian_Bach.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "Bach");
     			attr_dev(img0, "class", "svelte-d70vcx");
     			toggle_class(img0, "mystery", /*rand*/ ctx[1] !== '[0]');
-    			add_location(img0, file, 71, 12, 2170);
+    			add_location(img0, file, 80, 12, 2610);
     			attr_dev(div1, "class", "bach svelte-d70vcx");
     			toggle_class(div1, "revealed", /*rand*/ ctx[1] === '[0]');
-    			add_location(div1, file, 69, 4, 2054);
+    			add_location(div1, file, 78, 4, 2494);
     			attr_dev(h21, "class", "svelte-d70vcx");
     			toggle_class(h21, "mystery", /*rand*/ ctx[1] !== '[1]');
-    			add_location(h21, file, 79, 8, 2867);
+    			add_location(h21, file, 88, 8, 3307);
     			if (!src_url_equal(img1.src, img1_src_value = "./Beethoven_by_Stieler_2.jpg")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "Beethoven");
     			attr_dev(img1, "class", "svelte-d70vcx");
     			toggle_class(img1, "mystery", /*rand*/ ctx[1] !== '[1]');
-    			add_location(img1, file, 80, 8, 2925);
+    			add_location(img1, file, 89, 8, 3365);
     			attr_dev(div2, "class", "beethoven svelte-d70vcx");
     			toggle_class(div2, "revealed", /*rand*/ ctx[1] === '[1]');
-    			add_location(div2, file, 78, 4, 2803);
+    			add_location(div2, file, 87, 4, 3243);
     			attr_dev(h22, "class", "svelte-d70vcx");
     			toggle_class(h22, "mystery", /*rand*/ ctx[1] !== '[2]');
-    			add_location(h22, file, 88, 8, 3633);
+    			add_location(h22, file, 97, 8, 4073);
     			if (!src_url_equal(img2.src, img2_src_value = "./Franz_Schubert_2.jpg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "Schubert");
     			attr_dev(img2, "class", "svelte-d70vcx");
     			toggle_class(img2, "mystery", /*rand*/ ctx[1] !== '[2]');
-    			add_location(img2, file, 89, 8, 3690);
+    			add_location(img2, file, 98, 8, 4130);
     			attr_dev(div3, "class", "schubert svelte-d70vcx");
     			toggle_class(div3, "revealed", /*rand*/ ctx[1] === '[2]');
-    			add_location(div3, file, 87, 4, 3570);
+    			add_location(div3, file, 96, 4, 4010);
     			attr_dev(div4, "class", "composers svelte-d70vcx");
-    			add_location(div4, file, 68, 0, 2026);
+    			add_location(div4, file, 77, 0, 2466);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2061,34 +2108,47 @@ var app = (function () {
     			insert_dev(target, div0, anchor);
     			append_dev(div0, form0);
     			append_dev(form0, input0);
-    			insert_dev(target, t1, anchor);
+    			append_dev(form0, t1);
+    			insert_dev(target, t2, anchor);
     			insert_dev(target, button, anchor);
-    			insert_dev(target, t3, anchor);
+    			insert_dev(target, t4, anchor);
     			insert_dev(target, form1, anchor);
     			append_dev(form1, input1);
-    			insert_dev(target, t4, anchor);
+    			append_dev(form1, t5);
+    			append_dev(form1, a0);
+    			insert_dev(target, t7, anchor);
+    			insert_dev(target, form2, anchor);
+    			append_dev(form2, input2);
+    			append_dev(form2, t8);
+    			append_dev(form2, a1);
+    			insert_dev(target, t10, anchor);
+    			insert_dev(target, form3, anchor);
+    			append_dev(form3, input3);
+    			append_dev(form3, t11);
+    			append_dev(form3, a2);
+    			insert_dev(target, t13, anchor);
     			insert_dev(target, div4, anchor);
     			append_dev(div4, div1);
     			append_dev(div1, h20);
-    			append_dev(div1, t6);
+    			append_dev(div1, t15);
     			append_dev(div1, img0);
-    			append_dev(div1, t7);
+    			append_dev(div1, t16);
     			if (if_block0) if_block0.m(div1, null);
-    			append_dev(div4, t8);
+    			append_dev(div4, t17);
     			append_dev(div4, div2);
     			append_dev(div2, h21);
-    			append_dev(div2, t10);
+    			append_dev(div2, t19);
     			append_dev(div2, img1);
-    			append_dev(div2, t11);
+    			append_dev(div2, t20);
     			if (if_block1) if_block1.m(div2, null);
-    			append_dev(div4, t12);
+    			append_dev(div4, t21);
     			append_dev(div4, div3);
     			append_dev(div3, h22);
-    			append_dev(div3, t14);
+    			append_dev(div3, t23);
     			append_dev(div3, img2);
-    			append_dev(div3, t15);
+    			append_dev(div3, t24);
     			if (if_block2) if_block2.m(div3, null);
-    			insert_dev(target, t16, anchor);
+    			insert_dev(target, t25, anchor);
     			mount_component(piano, target, anchor);
     			current = true;
 
@@ -2208,16 +2268,20 @@ var app = (function () {
     			info = null;
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(div0);
-    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(t2);
     			if (detaching) detach_dev(button);
-    			if (detaching) detach_dev(t3);
-    			if (detaching) detach_dev(form1);
     			if (detaching) detach_dev(t4);
+    			if (detaching) detach_dev(form1);
+    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(form2);
+    			if (detaching) detach_dev(t10);
+    			if (detaching) detach_dev(form3);
+    			if (detaching) detach_dev(t13);
     			if (detaching) detach_dev(div4);
     			if (if_block0) if_block0.d();
     			if (if_block1) if_block1.d();
     			if (if_block2) if_block2.d();
-    			if (detaching) detach_dev(t16);
+    			if (detaching) detach_dev(t25);
     			destroy_component(piano, detaching);
     			mounted = false;
     			run_all(dispose);
