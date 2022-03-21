@@ -1,35 +1,23 @@
 <script>
     import { fly } from 'svelte/transition'
-    import Piano from './Piano.svelte'
+    // import Piano from './Piano.svelte'
 
-    let rand = '...';
-    async function getRand() {
-    //   fetch("./rand")
-      let result = await fetch("./predict")
-      let resultText = await result.text()
-      handle(resultText)
-    }
+    let result
 
-    function setPromise() {
-        rand = '...'
-        promise = getRand()
-    }
-
-    function handle(result) {
-        rand = result
+    function handle(res) {
+        result = res
         document.body.style.position = 'relative'
     }
 
     let promise
     $: document.body.style.position = promise ? 'fixed' : 'relative'
 
-    function handleSubmit(event) {
-        rand = '...'
-        promise = uploadFileFrom(event)
+    function handleSubmit() {
+        result = null
+        promise = uploadFile()
     }
 
-    async function uploadFileFrom(event) {
-        // const formData = new FormData(event.target)
+    async function uploadFile() {
         const formData = new FormData(document.querySelector('#file-upload'))
         const response = await fetch('/upload', { method: 'POST', body: formData })
         const responseText = await response.text()
@@ -42,72 +30,105 @@
     }
 </script>
 
-<!-- {#if promise} -->
-    {#await promise}
-        <div class="loading">Loading... Please wait...</div>
-    {/await}
-<!-- {/if} -->
-
-<!-- on:submit|preventDefault={handleSubmit} -->
-<!-- method="POST" action="/upload" enctype="multipart/form-data" -->
+{#await promise}
+    <div class="loading">Loading... Please wait...</div>
+{/await}
 
 <div class="container">
-    <!-- <form on:submit|preventDefault={handleSubmit}> -->
     <form id="file-upload">
-        <input type="file" name="file" accept=".mid" on:input={handleSubmit}/> (25kb limit)
-        <!-- <input type="submit" value="submit"/> -->
+        <label>
+            <strong>Upload a MIDI (.mid) file:</strong>
+            <input type="file" name="file" accept=".mid" on:input={handleSubmit}/>
+            (25KB limit)
+        </label>
     </form>
 </div>
-  
-<!-- <h1>{rand}</h1> -->
-<button on:click={setPromise}>TEST</button>
-<form method="GET" action="bach_847_format0.mid">
-    <input type="submit" value="Download Bach MIDI"/>
-    <a href="http://www.piano-midi.de/bach.htm">More</a>
-</form>
-<form method="GET" action="elise_format0.mid">
-    <input type="submit" value="Download Beethoven MIDI"/>
-    <a href="http://www.piano-midi.de/beeth.htm">More</a>
-</form>
-<form method="GET" action="schu_143_2_format0.mid">
-    <input type="submit" value="Download Schubert MIDI"/>
-    <a href="http://www.piano-midi.de/schub.htm">More</a>
-</form>
+
+<div class="downloads">
+    <form method="GET" action="bach_847_format0.mid">
+        <input type="submit" value="Download Bach MIDI"/>
+        <a href="http://www.piano-midi.de/bach.htm">More...</a>
+    </form>
+    <form method="GET" action="elise_format0.mid">
+        <input type="submit" value="Download Beethoven MIDI"/>
+        <a href="http://www.piano-midi.de/beeth.htm">More...</a>
+    </form>
+    <form method="GET" action="schu_143_2_format0.mid">
+        <input type="submit" value="Download Schubert MIDI"/>
+        <a href="http://www.piano-midi.de/schub.htm">More...</a>
+    </form>
+</div>
 
 <!-- https://www.wpclipart.com/famous/composers/ -->
 <div class="composers">
-    <div class="bach" class:revealed={rand === '[0]'}>
-        <h2 class:mystery={rand !== '[0]'}>BACH</h2>
-            <img class:mystery={rand !== '[0]'} src="./Johann_Sebastian_Bach.png" alt="Bach"/> <!-- https://www.wpclipart.com/famous/composers/Bach/Johann_Sebastian_Bach.png.html -->
-        {#if rand === '[0]'}
+    <div class="bach" class:revealed={result === '[0]'}>
+        <h2 class:mystery={result !== '[0]'}>BACH</h2>
+        <!-- https://www.wpclipart.com/famous/composers/Bach/Johann_Sebastian_Bach.png.html -->
+        <img class:mystery={result !== '[0]'} src="./Johann_Sebastian_Bach.png" alt="Bach"/>
+        {#if result === '[0]'}
         <p in:fly={{ y: -10, duration: 1000 }}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.
+            That sounds like <strong>Bach</strong>.
+            <br/><br/>
+            Bach lived from 1685 to 1750 and composed during the <strong>Baroque</strong> period.
+            <br/><br/>
+            Contemporaries include: Handel, Scarlatti, Vivaldi
         </p>
         {/if}
     </div>
-    <div class="beethoven" class:revealed={rand === '[1]'}>
-        <h2 class:mystery={rand !== '[1]'}>BEETHOVEN</h2>
-        <img class:mystery={rand !== '[1]'} src="./Beethoven_by_Stieler_2.jpg" alt="Beethoven"/> <!-- https://www.wpclipart.com/famous/composers/Beethoven/Beethoven_by_Stieler_2.jpg.html -->
-        {#if rand === '[1]'}
+    <div class="beethoven" class:revealed={result === '[1]'}>
+        <h2 class:mystery={result !== '[1]'}>BEETHOVEN</h2>
+        <!-- https://www.wpclipart.com/famous/composers/Beethoven/Beethoven_by_Stieler_2.jpg.html -->
+        <img class:mystery={result !== '[1]'} src="./Beethoven_by_Stieler_2.jpg" alt="Beethoven"/>
+        {#if result === '[1]'}
         <p in:fly={{ y: -10, duration: 1000 }}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.
+            That sounds like <strong>Beethoven</strong>.
+            <br/><br/>
+            Beethoven lived from 1770 to 1827 and composed during the <strong>Classical</strong> period.
+            <br/><br/>
+            Contemporaries include: Boccherini, Haydn, Mozart
         </p>
         {/if}
     </div>
-    <div class="schubert" class:revealed={rand === '[2]'}>
-        <h2 class:mystery={rand !== '[2]'}>SCHUBERT</h2>
-        <img class:mystery={rand !== '[2]'} src="./Franz_Schubert_2.jpg" alt="Schubert"/> <!-- https://www.wpclipart.com/famous/composers/Schubert/Franz_Schubert_2.jpg.html -->
-        {#if rand === '[2]'}
+    <div class="schubert" class:revealed={result === '[2]'}>
+        <h2 class:mystery={result !== '[2]'}>SCHUBERT</h2>
+        <!-- https://www.wpclipart.com/famous/composers/Schubert/Franz_Schubert_2.jpg.html -->
+        <img class:mystery={result !== '[2]'} src="./Franz_Schubert_2.jpg" alt="Schubert"/>
+        {#if result === '[2]'}
         <p in:fly={{ y: -10, duration: 1000 }}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.
+            That sounds like <strong>Schubert</strong>.
+            <br/><br/>
+            Schubert lived from 1797 to 1828 and composed during the <strong>Romantic</strong> period.
+            <br/><br/>
+            Contemporaries include: Chopin, Mendelssohn, Schumann
         </p>
         {/if}
     </div>
 </div>
 
-<!-- <Piano /> -->
+<!-- <Piano />   -->
 
 <style>
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+    .container > form {
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 30px;
+    }
+    .downloads {
+        display: flex;
+        justify-content: space-around;
+    }
+    .downloads > form {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
     .composers {
         display: flex;
         gap: 10px;
@@ -116,11 +137,10 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
         border-radius: 10px;
         padding: 20px;
-        height: 500px;
+        height: 555px;
     }
     h2.mystery {
         filter: blur(5px);
@@ -131,9 +151,12 @@
         transition: filter 1s;
     }
     img.mystery {
-        /* opacity: 0.4; */
         filter: blur(1px) grayscale(80%) opacity(0.4);
         transition: none;
+    }
+    p {
+        margin-top: 30px;
+        text-align: left;
     }
     .loading {
         position: fixed;
