@@ -1829,6 +1829,7 @@ var app = (function () {
     // (82:8) {#if rand === '[1]'}
     function create_if_block_1(ctx) {
     	let p;
+    	let p_intro;
 
     	const block = {
     		c: function create() {
@@ -1839,6 +1840,15 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     		},
+    		i: function intro(local) {
+    			if (!p_intro) {
+    				add_render_callback(() => {
+    					p_intro = create_in_transition(p, fly, { y: -10, duration: 1000 });
+    					p_intro.start();
+    				});
+    			}
+    		},
+    		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
     		}
@@ -1858,16 +1868,26 @@ var app = (function () {
     // (91:8) {#if rand === '[2]'}
     function create_if_block(ctx) {
     	let p;
+    	let p_intro;
 
     	const block = {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.";
-    			add_location(p, file, 91, 8, 3860);
+    			add_location(p, file, 91, 8, 3896);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     		},
+    		i: function intro(local) {
+    			if (!p_intro) {
+    				add_render_callback(() => {
+    					p_intro = create_in_transition(p, fly, { y: -10, duration: 1000 });
+    					p_intro.start();
+    				});
+    			}
+    		},
+    		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
     		}
@@ -2018,15 +2038,15 @@ var app = (function () {
     			add_location(div2, file, 78, 4, 2803);
     			attr_dev(h22, "class", "svelte-d70vcx");
     			toggle_class(h22, "mystery", /*rand*/ ctx[1] !== '[2]');
-    			add_location(h22, file, 88, 8, 3597);
+    			add_location(h22, file, 88, 8, 3633);
     			if (!src_url_equal(img2.src, img2_src_value = "./Franz_Schubert_2.jpg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "Schubert");
     			attr_dev(img2, "class", "svelte-d70vcx");
     			toggle_class(img2, "mystery", /*rand*/ ctx[1] !== '[2]');
-    			add_location(img2, file, 89, 8, 3654);
+    			add_location(img2, file, 89, 8, 3690);
     			attr_dev(div3, "class", "schubert svelte-d70vcx");
     			toggle_class(div3, "revealed", /*rand*/ ctx[1] === '[2]');
-    			add_location(div3, file, 87, 4, 3534);
+    			add_location(div3, file, 87, 4, 3570);
     			attr_dev(div4, "class", "composers svelte-d70vcx");
     			add_location(div4, file, 68, 0, 2026);
     		},
@@ -2123,9 +2143,14 @@ var app = (function () {
     			}
 
     			if (/*rand*/ ctx[1] === '[1]') {
-    				if (if_block1) ; else {
+    				if (if_block1) {
+    					if (dirty & /*rand*/ 2) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
     					if_block1 = create_if_block_1(ctx);
     					if_block1.c();
+    					transition_in(if_block1, 1);
     					if_block1.m(div2, null);
     				}
     			} else if (if_block1) {
@@ -2146,9 +2171,14 @@ var app = (function () {
     			}
 
     			if (/*rand*/ ctx[1] === '[2]') {
-    				if (if_block2) ; else {
+    				if (if_block2) {
+    					if (dirty & /*rand*/ 2) {
+    						transition_in(if_block2, 1);
+    					}
+    				} else {
     					if_block2 = create_if_block(ctx);
     					if_block2.c();
+    					transition_in(if_block2, 1);
     					if_block2.m(div3, null);
     				}
     			} else if (if_block2) {
@@ -2163,6 +2193,8 @@ var app = (function () {
     		i: function intro(local) {
     			if (current) return;
     			transition_in(if_block0);
+    			transition_in(if_block1);
+    			transition_in(if_block2);
     			transition_in(piano.$$.fragment, local);
     			current = true;
     		},

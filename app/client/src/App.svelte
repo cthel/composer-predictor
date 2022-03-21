@@ -80,7 +80,7 @@
         <h2 class:mystery={rand !== '[1]'}>BEETHOVEN</h2>
         <img class:mystery={rand !== '[1]'} src="./Beethoven_by_Stieler_2.jpg" alt="Beethoven"/> <!-- https://www.wpclipart.com/famous/composers/Beethoven/Beethoven_by_Stieler_2.jpg.html -->
         {#if rand === '[1]'}
-        <p>
+        <p in:fly={{ y: -10, duration: 1000 }}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.
         </p>
         {/if}
@@ -89,7 +89,7 @@
         <h2 class:mystery={rand !== '[2]'}>SCHUBERT</h2>
         <img class:mystery={rand !== '[2]'} src="./Franz_Schubert_2.jpg" alt="Schubert"/> <!-- https://www.wpclipart.com/famous/composers/Schubert/Franz_Schubert_2.jpg.html -->
         {#if rand === '[2]'}
-        <p>
+        <p in:fly={{ y: -10, duration: 1000 }}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, voluptates. Fugiat sapiente vero, vel aut nisi eum maxime? Corrupti totam fugit sint quisquam dolorum harum. Illo, impedit sit. Maiores amet rem quam ea ut libero delectus atque sapiente nemo, ducimus quod ipsum magni, facilis unde? In delectus quisquam ad iure.
         </p>
         {/if}
