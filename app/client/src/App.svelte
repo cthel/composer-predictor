@@ -125,6 +125,7 @@
         justify-content: space-around;
     }
     .downloads > form {
+        flex: 1;
         display: flex;
         gap: 20px;
         align-items: center;
