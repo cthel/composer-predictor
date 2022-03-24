@@ -35,6 +35,10 @@
 {/await}
 
 <div class="container">
+    <p>Click <a href="https://kaggle.com/code/joshuadubbsnadeau/capstone-composer-predictor-public" target="_blank">here</a> for the Kaggle notebook&nbsp;|&nbsp;</p>
+    <p>Click <a href="https://github.com/cthel/composer-predictor" target="_blank">here</a> for the source code on GitHub</p>
+</div>
+<div class="container">
     <form id="file-upload">
         <label>
             <strong>Upload a MIDI (.mid) file:</strong>
@@ -47,15 +51,15 @@
 <div class="downloads">
     <form method="GET" action="bach_847_format0.mid">
         <input type="submit" value="Download Bach MIDI"/>
-        <a href="http://www.piano-midi.de/bach.htm">More...</a>
+        <a href="http://www.piano-midi.de/bach.htm" target="_blank">More...</a>
     </form>
     <form method="GET" action="elise_format0.mid">
         <input type="submit" value="Download Beethoven MIDI"/>
-        <a href="http://www.piano-midi.de/beeth.htm">More...</a>
+        <a href="http://www.piano-midi.de/beeth.htm" target="_blank">More...</a>
     </form>
     <form method="GET" action="schu_143_2_format0.mid">
         <input type="submit" value="Download Schubert MIDI"/>
-        <a href="http://www.piano-midi.de/schub.htm">More...</a>
+        <a href="http://www.piano-midi.de/schub.htm" target="_blank">More...</a>
     </form>
 </div>
 
@@ -66,7 +70,7 @@
         <!-- https://www.wpclipart.com/famous/composers/Bach/Johann_Sebastian_Bach.png.html -->
         <img class:mystery={result !== '[0]'} src="./Johann_Sebastian_Bach.png" alt="Bach"/>
         {#if result === '[0]'}
-        <p in:fly={{ y: -10, duration: 1000 }}>
+        <p class="composer" in:fly={{ y: -10, duration: 1000 }}>
             That sounds like <strong>Bach</strong>.
             <br/><br/>
             Bach lived from 1685 to 1750 and composed during the <strong>Baroque</strong> period.
@@ -80,7 +84,7 @@
         <!-- https://www.wpclipart.com/famous/composers/Beethoven/Beethoven_by_Stieler_2.jpg.html -->
         <img class:mystery={result !== '[1]'} src="./Beethoven_by_Stieler_2.jpg" alt="Beethoven"/>
         {#if result === '[1]'}
-        <p in:fly={{ y: -10, duration: 1000 }}>
+        <p class="composer" in:fly={{ y: -10, duration: 1000 }}>
             That sounds like <strong>Beethoven</strong>.
             <br/><br/>
             Beethoven lived from 1770 to 1827 and composed during the <strong>Classical</strong> period.
@@ -94,7 +98,7 @@
         <!-- https://www.wpclipart.com/famous/composers/Schubert/Franz_Schubert_2.jpg.html -->
         <img class:mystery={result !== '[2]'} src="./Franz_Schubert_2.jpg" alt="Schubert"/>
         {#if result === '[2]'}
-        <p in:fly={{ y: -10, duration: 1000 }}>
+        <p class="composer" in:fly={{ y: -10, duration: 1000 }}>
             That sounds like <strong>Schubert</strong>.
             <br/><br/>
             Schubert lived from 1797 to 1828 and composed during the <strong>Romantic</strong> period.
@@ -111,6 +115,9 @@
     .container {
         display: flex;
         justify-content: center;
+    }
+    .container > p {
+        color: gray;
     }
     .container > form {
         border: 3px solid black;
@@ -155,7 +162,7 @@
         filter: blur(1px) grayscale(80%) opacity(0.4);
         transition: none;
     }
-    p {
+    p.composer {
         margin-top: 30px;
         text-align: left;
     }
